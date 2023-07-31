@@ -2,7 +2,11 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+
 const __dirname = path.resolve();
+
+import mongodb from 'mongodb';
+
 
 import api1Router from './Api1/script.mjs';
 
@@ -14,11 +18,11 @@ app.use(cors())
 
 app.use('/', express.static(path.join(__dirname, 'Public')))
 
-// Useing the API routes from api1
+
 app.use('/Api1', api1Router);
 
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
